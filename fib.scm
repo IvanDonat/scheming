@@ -2,3 +2,9 @@
     (cond ((= n 1) 1)
           ((= n 2) 1)
           (else (+ (fib (- n 1)) (fib (- n 2))))))
+
+(define (fibi n)
+    (define (fib-iter a b i)
+        (cond ((= i n) b)
+              (else (fib-iter b (+ a b) (+ i 1)))))
+    (fib-iter 0 1 1))
