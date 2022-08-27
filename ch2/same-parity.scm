@@ -1,0 +1,13 @@
+(define (filter f? l)
+    (if (null? l)
+        '()
+        (let ((first (car l))
+            (second (cdr l)))
+            (if (f? first)
+                (cons first (filter f? second))
+                (filter f? second)))))
+
+(define (same-parity x . l)
+    (define (same? n)
+        (equal? (remainder x 2) (remainder n 2)))
+    (cons x (filter same? l)))
