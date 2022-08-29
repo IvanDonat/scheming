@@ -1,0 +1,10 @@
+(define entry car)
+(define left-branch cadr)
+(define right-branch caddr)
+(define make-tree list)
+
+(define (element-of-set? x set)
+    (cond ((or (null? set)  false)
+          ((= x (entry set)) true)
+          ((< x (entry set)) (element-of-set? x (left-branch set)))
+          ((> x (entry set)) (element-of-set? x (right-branch set))))))
